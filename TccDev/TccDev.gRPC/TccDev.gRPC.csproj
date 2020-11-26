@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <UserSecretsId>4ca3876d-88d1-450d-b6e0-4e99c5658136</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <Protobuf Include="Protos\*.proto" GrpcServices="Server" Generator="MSBuild:Compile" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Grpc.AspNetCore" Version="2.23.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.9.5" />
+    <!--foi adicionado para gerar o base-->
+    <PackageReference Include="Google.Protobuf" Version="3.9.2" />
+    <PackageReference Include="Grpc.Net.Client" Version="2.23.2" />
+    <PackageReference Include="Grpc.Tools" Version="2.23.0" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TccDev.Application\TccDev.Application.csproj" />
+    <ProjectReference Include="..\TccDev.Data\TccDev.Data.csproj" />
+    <ProjectReference Include="..\TccDev.Domain\TccDev.Domain.csproj" />
+    <ProjectReference Include="..\TccDev.Mapping\TccDev.Mapping.csproj" />
+  </ItemGroup>
+
+</Project>
